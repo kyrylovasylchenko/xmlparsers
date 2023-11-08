@@ -13,14 +13,15 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 public class Project {
+
     @JsonProperty("projectName")
-    private String name;
+    private String projectName;
 
     @JsonProperty("bassProjectKey")
-    private String bassKey;
+    private String bassProjectKey;
 
     @JsonProperty("targetProjectKey")
-    private String targetKey;
+    private String targetProjectKey;
 
     @JsonProperty("scripts")
     private List<String> scripts;
