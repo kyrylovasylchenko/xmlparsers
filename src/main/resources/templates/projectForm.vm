@@ -1,0 +1,155 @@
+
+
+#requireResource("com.atlassian.auiplugin:aui-select")
+#requireResource("com.atlassian.auiplugin:aui-form-validation")
+#requireResource("com.atlassian.auiplugin:aui-spinner")
+#requireResource("com.atlassian.auiplugin:aui-progress-indicator")
+#requireResource("com.atlassian.auiplugin:aui-flag")
+#requireResource("com.atlassian.auiplugin:aui-select2")
+
+<html>
+<head>
+
+    <title>NC CleanUp before export</title>
+    <meta name="decorator" content="atl.admin"/>
+    #requireResourcesForContext("xmlparsers")
+
+</head>
+<body>
+
+<div class="aui-tabs horizontal-tabs">
+    <ul class="tabs-menu">
+        <li class="menu-item active-tab">
+            <a href="#tabs-example-first">Cleanup content</a>
+        </li>
+        <li class="menu-item">
+            <a href="#tabs-example-second">Add project</a>
+        </li>
+        <li class="menu-item">
+            <a href="#tabs-example-third">List of project</a>
+        </li>
+    </ul>
+    <div class="tabs-pane active-pane" id="tabs-example-first">
+        <form class="aui" action="#" method="post" id="runCleanUp">
+            <div class="field-group">
+
+                <label for="project" class="label-form">Project
+                    <span class="aui-icon icon-required">(required)</span></label>
+                <aui-select
+                        id="project"
+                        name="project"
+                        placeholder="Select a project"
+                        data-aui-validation-field
+                        data-aui-validation-required="required"
+                >
+                    <aui-option>DU</aui-option>
+                    <aui-option>ND</aui-option>
+                </aui-select>
+                <div class="description" id="projectDescription">Choose project</div>
+
+            </div>
+            <div class="field-group">
+                <label for="pageId" class="label-form">Page id
+                    <span class="aui-icon icon-required">(required)</span></label>
+                <input class="text medium-field" type="text"
+                       id="pageId" name="pageId" placeholder=0000000
+                       data-aui-validation-field data-aui-validation-pattern="\d{4,16}"
+                       data-aui-validation-pattern-msg="Incorrect page id"
+                       data-aui-validation-required="required">
+                <div class="description" id="pageIdDescription">Input page id</div>
+            </div>
+            <div class="buttons-container">
+                <div class="buttons">
+                    <input class="button submit" type="submit" value="Submit" id="run">
+                </div>
+            </div>
+
+        </form>
+    </div>
+    <div class="tabs-pane" id="tabs-example-second">
+        <form class="aui" action="#" method="post" id="projectForm">
+
+            <div class="field-group">
+                <label for="projectName" class="label-form">Project name
+                    <span class="aui-icon icon-required">(required)</span></label>
+                <input class="text medium-field" type="text"
+                       id="projectName" name="projectName" placeholder="Some project"
+                       data-aui-validation-field data-aui-validation-pattern="[A-Za-z]{2,16}"
+                       data-aui-validation-pattern-msg="Invalid project name"
+                       data-aui-validation-required="required">
+                <div class="description" id="pageIdDescription">Input project name</div>
+            </div>
+
+            <div class="field-group">
+                <label for="bassProjectKey" class="label-form">Bass project key
+                    <span class="aui-icon icon-required">(required)</span></label>
+                <input class="text medium-field" type="text"
+                       id="bassProjectKey" name="bassProjectKey" placeholder="space key"
+                       data-aui-validation-field data-aui-validation-pattern="[A-Z]{2,12}"
+                       data-aui-validation-pattern-msg="Invalid bass space key"
+                       data-aui-validation-required="required">
+                <div class="description" id="pageIdDescription">Input bass space key in upper case</div>
+            </div>
+
+            <div class="field-group">
+                <label for="targetProjectKey" class="label-form">Target project key
+                    <span class="aui-icon icon-required">(required)</span></label>
+                <input class="text medium-field" type="text"
+                       id="targetProjectKey" name="targetProjectKey" placeholder="space key"
+                       data-aui-validation-field data-aui-validation-pattern="[A-Z]{2,12}"
+                       data-aui-validation-pattern-msg="Invalid target space key"
+                       data-aui-validation-required="required">
+                <div class="description" id="pageIdDescription">Input target space key in upper case</div>
+            </div>
+            <label for="scripts" class="label-form">Scripts for project
+                <span class="aui-icon icon-required">(required)</span></label>
+            <select id="scripts" multiple="">
+                <option value="CONF">Confluence</option>
+                <option value="JIRA">JIRA</option>
+                <option value="BAM">Bamboo</option>
+                <option value="JAG">JIRA Agile</option>
+                <option value="CAP">JIRA Capture</option>
+                <option value="AUI">AUI</option>
+            </select>
+            <div class="buttons-container">
+                <div class="buttons">
+                    <input class="button submit" type="submit" value="Submit" id="run">
+                </div>
+            </div>
+
+        </form>
+    </div>
+    <div class="tabs-pane" id="tabs-example-third">
+        <h1>List of projects</h1>
+        <table class="aui">
+            <thead>
+            <tr>
+                <th id="table-project-name">Name</th>
+                <th id="table-project-bass-key">Bass key</th>
+                <th id="table-project-target-key">Target key</th>
+                <th id="table-project-scripts">Scrpits</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td headers="basic-number">DUBSS</td>
+                <td headers="basic-fname">DU</td>
+                <td headers="basic-lname">NET</td>
+                <td headers="basic-username">some scripts</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<div id="success-massage" class="aui-message success" style="display: none">
+    <p class="title">
+        <span class="aui-icon icon-success"></span>
+        <strong>Info</strong>
+    </p>
+    <pre><p class="success-message-body"></p></pre>
+</div>
+
+</body>
+</html>

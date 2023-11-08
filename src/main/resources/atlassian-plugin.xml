@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<atlassian-plugin key="${atlassian.plugin.key}" name="${project.name}" plugins-version="2"> 
+  <plugin-info> 
+    <description>${project.description}</description>  
+    <version>${project.version}</version>  
+    <vendor name="${project.organization.name}" url="${project.organization.url}"/>  
+    <param name="plugin-icon">images/pluginIcon.png</param>  
+    <param name="plugin-logo">images/pluginLogo.png</param>
+    <param name="configure.url">/xmlparsers/run.action</param>
+  </plugin-info>  
+  <!-- add our i18n resource -->  
+  <resource type="i18n" name="i18n" location="xmlparsers"/>  
+  <!-- add our web resources -->  
+  <web-resource key="xmlparsers-resources" name="xmlparsers Web Resources"> 
+    <dependency>com.atlassian.auiplugin:ajs</dependency>  
+    <resource type="download" name="xmlparsers.css" location="/css/xmlparsers.css"/>  
+    <resource type="download" name="xmlparsers.js" location="/js/xmlparsers.js"/>  
+    <resource type="download" name="images/" location="/images"/>
+    <context>xmlparsers</context> 
+  </web-resource>
+
+  <rest key="xmlparsers" path="/xmlparsers" version="1.0">
+    <description>Provides cleanUp rest services</description>
+  </rest>
+
+  <xwork key="actions" name="actions">
+    <description>Cleanup Actions</description>
+    <package name="xmlParsers" extends="default" namespace="/xmlparsers">
+      <default-interceptor-ref name="defaultStack"/>
+
+      <action name="run" class="com.netcracker.action.ConfigAction">
+        <result name="run" type="velocity">/templates/projectForm.vm
+        </result>
+        <result name="error/403" type="velocity">/templates/accessDenied.vm
+        </result>
+      </action>
+    </package>
+  </xwork>
+</atlassian-plugin>

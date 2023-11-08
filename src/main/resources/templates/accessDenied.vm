@@ -1,0 +1,32 @@
+<html>
+<head>
+    <title>Access Denied</title>
+</head>
+<body>
+<div id="main" class="aui-page-panel">
+    <div id="main-header">
+        <h1 id="title-heading" class="pagetitle with-breadcrumbs">
+            <img class="global logo"
+                 src="$req.contextPath/download/resources/com.netcracker.sudo.Sudo:resources/global.png">
+            <span id="title-text" class="with-breadcrumbs">No Permission</span>
+        </h1>
+    </div>
+    <a class="assistive" href="#dashboard-recently-updated">Skip to Recently Updated</a>
+
+    <div class="pagebody">
+        <div class="dashboard">
+            <div class="dashboard-section">
+                <div class="dashboard-group view-information">
+                    <div class="padded">
+                        <div class="steptitle">You cannot view this page</div>
+                        <p>Please contact with your administrator.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- .dashboard-section -->
+        </div>
+        <!-- .dashboard -->
+    </div>
+</div>
+</body>
+</html>
