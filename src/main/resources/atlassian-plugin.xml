@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<atlassian-plugin key="${atlassian.plugin.key}" name="${project.name}" plugins-version="2"> 
+<atlassian-plugin key="${atlassian.plugin.key}" name="${project.name}" plugins-version="2">
   <plugin-info> 
-    <description>${project.description}</description>  
-    <version>${project.version}</version>  
-    <vendor name="${project.organization.name}" url="${project.organization.url}"/>  
+    <description>${project.description}</description>
+    <version>${project.version}</version>
+    <vendor name="${project.organization.name}" url="${project.organization.url}"/>
     <param name="plugin-icon">images/pluginIcon.png</param>  
     <param name="plugin-logo">images/pluginLogo.png</param>
     <param name="configure.url">/xmlparsers/run.action</param>
@@ -37,4 +37,10 @@
       </action>
     </package>
   </xwork>
+
+
+  <ao key="project-entity">
+    <description>The module configuring the Active Objects service used by this plugin</description>
+    <entity>com.netcracker.model.ProjectEntity</entity>
+  </ao>
 </atlassian-plugin>

@@ -130,6 +130,12 @@
             <version>1.8.5</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>com.atlassian.activeobjects</groupId>
+            <artifactId>activeobjects-plugin</artifactId>
+            <version>${ao.version}</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
@@ -155,18 +161,27 @@
                     </instructions>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>9</source>
+                    <target>9</target>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
     <properties>
         <confluence.version>7.15.3</confluence.version>
         <confluence.data.version>7.15.3</confluence.data.version>
         <amps.version>8.1.2</amps.version>
+        <ao.version>5.2.1</ao.version>
         <plugin.testrunner.version>2.0.2</plugin.testrunner.version>
         <osgi.javaconfig.version>0.2.0</osgi.javaconfig.version>
         <spring.version>4.2.5.RELEASE</spring.version>
         <!-- This property ensures consistency between the key in atlassian-plugin.xml and the OSGi bundle's key. -->
         <atlassian.plugin.key>${project.groupId}.${project.artifactId}</atlassian.plugin.key>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <projectDTO.build.sourceEncoding>UTF-8</projectDTO.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>

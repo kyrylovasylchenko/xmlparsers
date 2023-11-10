@@ -23,29 +23,29 @@
             <a href="#tabs-example-first">Cleanup content</a>
         </li>
         <li class="menu-item">
-            <a href="#tabs-example-second">Add project</a>
+            <a href="#tabs-example-second">Add projectDTO</a>
         </li>
         <li class="menu-item">
-            <a href="#tabs-example-third">List of project</a>
+            <a href="#tabs-example-third">List of projectDTO</a>
         </li>
     </ul>
     <div class="tabs-pane active-pane" id="tabs-example-first">
         <form class="aui" action="#" method="post" id="runCleanUp">
             <div class="field-group">
 
-                <label for="project" class="label-form">Project
+                <label for="projectDTO" class="label-form">Project
                     <span class="aui-icon icon-required">(required)</span></label>
                 <aui-select
-                        id="project"
-                        name="project"
-                        placeholder="Select a project"
+                        id="projectDTO"
+                        name="projectDTO"
+                        placeholder="Select a projectDTO"
                         data-aui-validation-field
                         data-aui-validation-required="required"
                 >
                     <aui-option>DU</aui-option>
                     <aui-option>ND</aui-option>
                 </aui-select>
-                <div class="description" id="projectDescription">Choose project</div>
+                <div class="description" id="projectDescription">Choose projectDTO</div>
 
             </div>
             <div class="field-group">
@@ -73,15 +73,15 @@
                 <label for="projectName" class="label-form">Project name
                     <span class="aui-icon icon-required">(required)</span></label>
                 <input class="text medium-field" type="text"
-                       id="projectName" name="projectName" placeholder="Some project"
+                       id="projectName" name="projectName" placeholder="Some projectDTO"
                        data-aui-validation-field data-aui-validation-pattern="[A-Za-z]{2,16}"
-                       data-aui-validation-pattern-msg="Invalid project name"
+                       data-aui-validation-pattern-msg="Invalid projectDTO name"
                        data-aui-validation-required="required">
-                <div class="description" id="pageIdDescription">Input project name</div>
+                <div class="description" id="pageIdDescription">Input projectDTO name</div>
             </div>
 
             <div class="field-group">
-                <label for="bassProjectKey" class="label-form">Bass project key
+                <label for="bassProjectKey" class="label-form">Bass projectDTO key
                     <span class="aui-icon icon-required">(required)</span></label>
                 <input class="text medium-field" type="text"
                        id="bassProjectKey" name="bassProjectKey" placeholder="space key"
@@ -92,7 +92,7 @@
             </div>
 
             <div class="field-group">
-                <label for="targetProjectKey" class="label-form">Target project key
+                <label for="targetProjectKey" class="label-form">Target projectDTO key
                     <span class="aui-icon icon-required">(required)</span></label>
                 <input class="text medium-field" type="text"
                        id="targetProjectKey" name="targetProjectKey" placeholder="space key"
@@ -101,7 +101,7 @@
                        data-aui-validation-required="required">
                 <div class="description" id="pageIdDescription">Input target space key in upper case</div>
             </div>
-            <label for="scripts" class="label-form">Scripts for project
+            <label for="scripts" class="label-form">Scripts for projectDTO
                 <span class="aui-icon icon-required">(required)</span></label>
             <select id="scripts" multiple="">
                 <option value="CONF">Confluence</option>
@@ -124,19 +124,13 @@
         <table class="aui">
             <thead>
             <tr>
-                <th id="table-project-name">Name</th>
-                <th id="table-project-bass-key">Bass key</th>
-                <th id="table-project-target-key">Target key</th>
-                <th id="table-project-scripts">Scrpits</th>
+                <th id="table-projectDTO-name">Name</th>
+                <th id="table-projectDTO-bass-key">Bass key</th>
+                <th id="table-projectDTO-target-key">Target key</th>
+                <th id="table-projectDTO-scripts">Scrpits</th>
             </tr>
             </thead>
-            <tbody>
-            <tr>
-                <td headers="basic-number">DUBSS</td>
-                <td headers="basic-fname">DU</td>
-                <td headers="basic-lname">NET</td>
-                <td headers="basic-username">some scripts</td>
-            </tr>
+            <tbody id="tableBody">
             </tbody>
         </table>
     </div>

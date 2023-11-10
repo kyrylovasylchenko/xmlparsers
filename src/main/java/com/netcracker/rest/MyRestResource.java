@@ -2,20 +2,16 @@ package com.netcracker.rest;
 
 
 
-import com.atlassian.confluence.pages.PageManager;
 import com.google.gson.Gson;
-import com.netcracker.model.Project;
+import com.netcracker.model.ProjectDTO;
+import com.netcracker.repository.ProjectRepositoryImpl;
+import com.netcracker.services.ProjectService;
 import lombok.extern.log4j.Log4j;
 import org.springframework.web.bind.annotation.RequestBody;
 
-
-
 import javax.ws.rs.*;
 
-import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.util.ArrayList;
-import java.util.List;
 
 
 /**
@@ -25,27 +21,30 @@ import java.util.List;
 @Log4j
 public class MyRestResource {
 
-    private final PageManager pageManager;
+
     private final Gson gson = new Gson();
-    private final List<Project> projectList = new ArrayList<>();
+    private final ProjectRepositoryImpl projectRepository;
+    private final ProjectService projectService;
 
-
-
-    public MyRestResource(PageManager pageManager) {
-        this.pageManager = pageManager;
+    public MyRestResource(ProjectRepositoryImpl projectService, ProjectService projectService1) {
+        this.projectRepository = projectService;
+        this.projectService = projectService1;
     }
 
+
     @PUT
-    public Response saveProject(@RequestBody Project project)
+    public Response saveProject(@RequestBody ProjectDTO projectDTO)
     {
-        projectList.add(project);
-        return Response.ok(project.toString()).build();
+        projectRepository.add(projectDTO);
+        return Response.ok(projectDTO.toString()).build();
     }
 
     @GET
     public Response getProjects(){
-
-        return Response.ok(projectList.toString()).build();
+        log.error("HERE CHECK JSON 3");
+        String json = gson.toJson(projectService.getAllProjects());
+        log.error(json);
+        return Response.ok(json).build();
     }
 
 
