@@ -25,4 +25,14 @@ public class ProjectService {
         }
         return result;
     }
+
+    public ProjectDTO add(ProjectDTO projectDTO){
+        ProjectEntity saved = projectRepository.add(projectDTO);
+        return projectConverter.projectEntityToProjectDTO(saved);
+    }
+
+    public ProjectDTO getProjectByName(String projectName) {
+        ProjectEntity byProjectName = projectRepository.getByProjectName(projectName);
+        return projectConverter.projectEntityToProjectDTO(byProjectName);
+    }
 }

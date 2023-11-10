@@ -35,6 +35,12 @@ public class ProjectRepositoryImpl implements ProjectRepository {
         return ao.find(ProjectEntity.class);
     }
 
+    @Override
+    public ProjectEntity getByProjectName(String projectName) {
+        ProjectEntity[] projectEntities = ao.find(ProjectEntity.class, Query.select().where("PROJECT_NAME = ?", projectName));
+        return projectEntities[0];
+    }
+
 
     public boolean delete(String projectName){
         return false;

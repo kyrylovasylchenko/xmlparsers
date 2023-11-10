@@ -8,6 +8,8 @@ AJS.toInit(function ($){
             var dataArray = JSON.parse(data);
 
             var tableBody = document.getElementById("tableBody");
+            var projectSelect = document.getElementById("projectSelect");
+            var dataListElement = projectSelect.querySelector("datalist");
 
             dataArray.forEach(function(item) {
                 var row = tableBody.insertRow();
@@ -31,6 +33,10 @@ AJS.toInit(function ($){
                 deleteButton.onclick = function() {
                     deleteProject(item.projectName);
                 };
+                var listElement = document.createElement("aui-option");
+                listElement.innerHTML = item.projectName
+                dataListElement.appendChild(listElement)
+
             });
         }
     })
@@ -51,6 +57,29 @@ AJS.toInit(function ($){
             url: AJS.contextPath() + "/rest/xmlparsers/1.0/project",
             contentType: "application/json",
             data: JSON.stringify(projectData),
+            success: function (data){
+                if(data === ""){
+                    $('#success-massage .success-message-body').text('Macros to change was not found');
+                }else{
+                    $('#success-massage .success-message-body').text(data);
+                }
+                console.log(data)
+                $("#success-massage").fadeIn();
+            }
+        })
+    })
+
+    $('#cleaningTask').on('aui-valid-submit',function (e){
+        e.preventDefault();
+
+
+        $.ajax({
+            type: "PUT",
+            url: AJS.contextPath() + "/rest/xmlparsers/1.0/task",
+            data: {
+                pageId:$('#pageId').val(),
+                projectName:$('#projectSelect').val()
+            },
             success: function (data){
                 if(data === ""){
                     $('#success-massage .success-message-body').text('Macros to change was not found');

@@ -19,31 +19,25 @@ import javax.ws.rs.core.Response;
  */
 @Path("/project")
 @Log4j
-public class MyRestResource {
-
+public class ProjectRest {
 
     private final Gson gson = new Gson();
-    private final ProjectRepositoryImpl projectRepository;
     private final ProjectService projectService;
 
-    public MyRestResource(ProjectRepositoryImpl projectService, ProjectService projectService1) {
-        this.projectRepository = projectService;
-        this.projectService = projectService1;
+    public ProjectRest(ProjectService projectService) {
+        this.projectService = projectService;
     }
-
 
     @PUT
     public Response saveProject(@RequestBody ProjectDTO projectDTO)
     {
-        projectRepository.add(projectDTO);
+        projectService.add(projectDTO);
         return Response.ok(projectDTO.toString()).build();
     }
 
     @GET
     public Response getProjects(){
-        log.error("HERE CHECK JSON 3");
         String json = gson.toJson(projectService.getAllProjects());
-        log.error(json);
         return Response.ok(json).build();
     }
 

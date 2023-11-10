@@ -10,4 +10,6 @@ import java.util.List;
 public interface ProjectRepository {
     ProjectEntity add(ProjectDTO project);
     ProjectEntity[] all();
+
+    ProjectEntity getByProjectName(String projectName);
 }
