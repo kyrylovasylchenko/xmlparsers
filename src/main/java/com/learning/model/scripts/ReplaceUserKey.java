@@ -16,14 +16,16 @@ public class ReplaceUserKey implements Script {
 
     @Override
     public String run(String body) {
-        Pattern oldPattern = Pattern.compile("((<ac:link><ri:user ri:userkey=\")(.+?)(\" /></ac:link>))");
-        Matcher matcher = oldPattern.matcher(body);
-        while(matcher.find()){
-            String oldLink = matcher.group(0);
-            String userKey = matcher.group(3);
+        if(body.contains("<ri:user ri:userkey=")){
+            Pattern oldPattern = Pattern.compile("((<ac:link><ri:user ri:userkey=\")(.+?)(\" /></ac:link>))");
+            Matcher matcher = oldPattern.matcher(body);
+            while(matcher.find()){
+                String oldLink = matcher.group(0);
+                String userKey = matcher.group(3);
 
-            String username = userAccessor.getExistingUserByKey(new UserKey(userKey)).getFullName();
-            body = body.replace(oldLink, username);
+                String username = userAccessor.getExistingUserByKey(new UserKey(userKey)).getFullName();
+                body = body.replace(oldLink, username);
+            }
         }
 
         return body;

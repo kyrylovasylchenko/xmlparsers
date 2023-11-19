@@ -20,6 +20,6 @@ public class CleaningTaskRest {
     @PUT
     public void cleanContent(@FormParam("projectName") String projectName, @FormParam("pageId") String pageId){
         log.error("PROJECT NAME " + projectName + " PAGE ID " + pageId);
-        cleaningTaskService.cleaningContent(projectName);
+        cleaningTaskService.cleaningContent(projectName, pageId);
     }
 }
