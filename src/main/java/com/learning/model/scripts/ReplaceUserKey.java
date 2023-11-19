@@ -1,11 +1,11 @@
-package com.netcracker.model.scripts;
+package com.learning.model.scripts;
 
 import com.atlassian.confluence.user.UserAccessor;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import com.atlassian.sal.api.user.UserKey;
-import com.netcracker.model.Script;
+import com.learning.model.Script;
 
 public class ReplaceUserKey implements Script {
 

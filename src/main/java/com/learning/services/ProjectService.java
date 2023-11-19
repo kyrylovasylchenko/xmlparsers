@@ -1,9 +1,9 @@
-package com.netcracker.services;
+package com.learning.services;
 
-import com.netcracker.model.ProjectDTO;
-import com.netcracker.model.ProjectEntity;
-import com.netcracker.repository.ProjectRepository;
-import com.netcracker.utils.ProjectConverter;
+import com.learning.model.ProjectDTO;
+import com.learning.model.ProjectEntity;
+import com.learning.repository.ProjectRepository;
+import com.learning.utils.ProjectConverter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +32,7 @@ public class ProjectService {
     }
 
     public ProjectDTO getProjectByName(String projectName) {
+
         ProjectEntity byProjectName = projectRepository.getByProjectName(projectName);
         return projectConverter.projectEntityToProjectDTO(byProjectName);
     }

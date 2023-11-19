@@ -1,10 +1,10 @@
-package com.netcracker.config;
+package com.learning.config;
 
 import com.atlassian.activeobjects.external.ActiveObjects;
-import com.netcracker.repository.ProjectRepository;
-import com.netcracker.repository.ProjectRepositoryImpl;
-import com.netcracker.services.CleaningTaskService;
-import com.netcracker.services.ProjectService;
+import com.learning.repository.ProjectRepository;
+import com.learning.repository.ProjectRepositoryImpl;
+import com.learning.services.CleaningTaskService;
+import com.learning.services.ProjectService;
 import org.springframework.context.annotation.Bean;
 
 

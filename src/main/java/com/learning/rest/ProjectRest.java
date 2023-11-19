@@ -1,11 +1,10 @@
-package com.netcracker.rest;
+package com.learning.rest;
 
 
 
 import com.google.gson.Gson;
-import com.netcracker.model.ProjectDTO;
-import com.netcracker.repository.ProjectRepositoryImpl;
-import com.netcracker.services.ProjectService;
+import com.learning.model.ProjectDTO;
+import com.learning.services.ProjectService;
 import lombok.extern.log4j.Log4j;
 import org.springframework.web.bind.annotation.RequestBody;
 

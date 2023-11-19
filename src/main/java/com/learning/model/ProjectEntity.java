@@ -1,4 +1,4 @@
-package com.netcracker.model;
+package com.learning.model;
 
 
 

@@ -1,4 +1,4 @@
-package com.netcracker.model;
+package com.learning.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
@@ -25,6 +25,15 @@ public class ProjectDTO {
 
     @JsonProperty("scripts")
     private List<String> scripts;
+
+    public ProjectDTO(String projectName){
+        this.projectName = projectName;
+    }
+
+    public ProjectDTO(String projectName, String bassProjectKey){
+        this.projectName = projectName;
+        this.bassProjectKey = bassProjectKey;
+    }
 
 
 }

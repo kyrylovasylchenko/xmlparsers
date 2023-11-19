@@ -29,7 +29,7 @@
     <package name="xmlParsers" extends="default" namespace="/xmlparsers">
       <default-interceptor-ref name="defaultStack"/>
 
-      <action name="run" class="com.netcracker.action.ConfigAction">
+      <action name="run" class="com.learning.action.ConfigAction">
         <result name="run" type="velocity">/templates/projectForm.vm
         </result>
         <result name="error/403" type="velocity">/templates/accessDenied.vm
@@ -41,6 +41,6 @@
 
   <ao key="project-entity">
     <description>The module configuring the Active Objects service used by this plugin</description>
-    <entity>com.netcracker.model.ProjectEntity</entity>
+    <entity>com.learning.model.ProjectEntity</entity>
   </ao>
 </atlassian-plugin>

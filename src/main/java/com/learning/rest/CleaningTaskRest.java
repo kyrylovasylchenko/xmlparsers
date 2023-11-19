@@ -1,6 +1,6 @@
-package com.netcracker.rest;
+package com.learning.rest;
 
-import com.netcracker.services.CleaningTaskService;
+import com.learning.services.CleaningTaskService;
 import lombok.extern.log4j.Log4j;
 
 import javax.ws.rs.FormParam;

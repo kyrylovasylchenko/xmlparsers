@@ -1,7 +1,7 @@
-package com.netcracker.utils;
+package com.learning.utils;
 
-import com.netcracker.model.ProjectDTO;
-import com.netcracker.model.ProjectEntity;
+import com.learning.model.ProjectDTO;
+import com.learning.model.ProjectEntity;
 
 import java.util.List;
 

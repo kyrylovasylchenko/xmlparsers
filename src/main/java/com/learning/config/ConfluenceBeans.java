@@ -1,4 +1,4 @@
-package com.netcracker.config;
+package com.learning.config;
 
 import com.atlassian.activeobjects.external.ActiveObjects;
 import com.atlassian.confluence.pages.PageManager;

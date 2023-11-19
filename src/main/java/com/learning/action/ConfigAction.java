@@ -1,4 +1,4 @@
-package com.netcracker.action;
+package com.learning.action;
 
 import com.atlassian.confluence.core.ConfluenceActionSupport;
 import com.atlassian.confluence.security.PermissionManager;

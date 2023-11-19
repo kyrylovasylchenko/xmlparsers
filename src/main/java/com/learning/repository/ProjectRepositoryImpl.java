@@ -1,14 +1,12 @@
-package com.netcracker.repository;
+package com.learning.repository;
 
 import com.atlassian.activeobjects.external.ActiveObjects;
-import com.netcracker.model.ProjectDTO;
-import com.netcracker.model.ProjectEntity;
+import com.learning.model.ProjectDTO;
+import com.learning.model.ProjectEntity;
 import lombok.extern.log4j.Log4j;
 import net.java.ao.DBParam;
 import net.java.ao.Query;
 
-
-import java.util.List;
 @Log4j
 public class ProjectRepositoryImpl implements ProjectRepository {
 

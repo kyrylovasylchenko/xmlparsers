@@ -1,10 +1,8 @@
-package com.netcracker.repository;
+package com.learning.repository;
 
 import com.atlassian.activeobjects.tx.Transactional;
-import com.netcracker.model.ProjectDTO;
-import com.netcracker.model.ProjectEntity;
-
-import java.util.List;
+import com.learning.model.ProjectDTO;
+import com.learning.model.ProjectEntity;
 
 @Transactional
 public interface ProjectRepository {
