@@ -5,6 +5,7 @@ import com.atlassian.confluence.user.UserAccessor;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import com.atlassian.sal.api.user.UserKey;
+import com.learning.model.PageDTO;
 import com.learning.model.Script;
 
 public class ReplaceUserKey implements Script {
@@ -15,7 +16,8 @@ public class ReplaceUserKey implements Script {
     }
 
     @Override
-    public String run(String body) {
+    public PageDTO run(PageDTO page) {
+        String body = page.getPage().getBodyAsString();
         if(body.contains("<ri:user ri:userkey=")){
             Pattern oldPattern = Pattern.compile("((<ac:link><ri:user ri:userkey=\")(.+?)(\" /></ac:link>))");
             Matcher matcher = oldPattern.matcher(body);
@@ -26,9 +28,11 @@ public class ReplaceUserKey implements Script {
                 String username = userAccessor.getExistingUserByKey(new UserKey(userKey)).getFullName();
                 body = body.replace(oldLink, username);
             }
+            page.setUpdated(true);
+            page.setBody(body);
         }
 
-        return body;
+        return page;
     }
 
 }
