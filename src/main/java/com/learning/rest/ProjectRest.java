@@ -3,7 +3,7 @@ package com.learning.rest;
 
 
 import com.google.gson.Gson;
-import com.learning.model.ProjectDTO;
+import com.learning.model.DTO.ProjectDTO;
 import com.learning.services.ProjectService;
 import lombok.extern.log4j.Log4j;
 import org.springframework.web.bind.annotation.RequestBody;

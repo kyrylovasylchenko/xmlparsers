@@ -5,7 +5,7 @@ import com.atlassian.confluence.user.UserAccessor;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import com.atlassian.sal.api.user.UserKey;
-import com.learning.model.PageDTO;
+import com.learning.model.DTO.PageDTO;
 import com.learning.model.Script;
 
 public class ReplaceUserKey implements Script {

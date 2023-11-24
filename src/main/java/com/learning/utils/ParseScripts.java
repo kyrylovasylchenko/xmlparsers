@@ -1,6 +1,6 @@
 package com.learning.utils;
 
-import com.learning.model.ProjectDTO;
+import com.learning.model.DTO.ProjectDTO;
 import com.learning.model.Script;
 import com.learning.model.scripts.ReplaceSpaceKey;
 import com.learning.model.scripts.ReplaceUserKey;

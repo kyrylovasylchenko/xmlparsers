@@ -1,7 +1,7 @@
 package com.learning.services;
 
-import com.learning.model.ProjectDTO;
-import com.learning.model.ProjectEntity;
+import com.learning.model.DTO.ProjectDTO;
+import com.learning.model.entity.ProjectEntity;
 import com.learning.repository.ProjectRepository;
 import com.learning.utils.ProjectConverter;
 

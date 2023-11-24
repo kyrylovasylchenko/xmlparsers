@@ -1,8 +1,8 @@
 package com.learning.repository;
 
 import com.atlassian.activeobjects.external.ActiveObjects;
-import com.learning.model.ProjectDTO;
-import com.learning.model.ProjectEntity;
+import com.learning.model.DTO.ProjectDTO;
+import com.learning.model.entity.ProjectEntity;
 import lombok.extern.log4j.Log4j;
 import net.java.ao.DBParam;
 import net.java.ao.Query;

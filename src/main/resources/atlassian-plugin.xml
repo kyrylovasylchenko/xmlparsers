@@ -41,6 +41,6 @@
 
   <ao key="project-entity">
     <description>The module configuring the Active Objects service used by this plugin</description>
-    <entity>com.learning.model.ProjectEntity</entity>
+    <entity>com.learning.model.entity.ProjectEntity</entity>
   </ao>
 </atlassian-plugin>

@@ -1,8 +1,8 @@
 package com.learning.repository;
 
 import com.atlassian.activeobjects.tx.Transactional;
-import com.learning.model.ProjectDTO;
-import com.learning.model.ProjectEntity;
+import com.learning.model.DTO.ProjectDTO;
+import com.learning.model.entity.ProjectEntity;
 
 @Transactional
 public interface ProjectRepository {

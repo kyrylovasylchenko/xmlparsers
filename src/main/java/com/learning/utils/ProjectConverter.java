@@ -1,7 +1,7 @@
 package com.learning.utils;
 
-import com.learning.model.ProjectDTO;
-import com.learning.model.ProjectEntity;
+import com.learning.model.DTO.ProjectDTO;
+import com.learning.model.entity.ProjectEntity;
 
 import java.util.ArrayList;
 import java.util.List;

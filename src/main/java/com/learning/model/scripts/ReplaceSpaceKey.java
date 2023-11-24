@@ -1,6 +1,6 @@
 package com.learning.model.scripts;
 
-import com.learning.model.PageDTO;
+import com.learning.model.DTO.PageDTO;
 import com.learning.model.Script;
 
 import java.util.HashSet;

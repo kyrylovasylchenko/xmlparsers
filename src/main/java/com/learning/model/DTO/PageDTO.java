@@ -1,4 +1,4 @@
-package com.learning.model;
+package com.learning.model.DTO;
 
 import com.atlassian.confluence.pages.Page;
 import lombok.Builder;
