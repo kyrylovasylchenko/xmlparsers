@@ -25,23 +25,17 @@ public class CleaningTaskService {
     }
 
     public void cleaningContent(String projectName, String pageId){
-        log.error("WE ARE HERE 1");
         Task task = createTask(projectName);
         List<Page> descendants = pageManager.getDescendants(pageManager.getPage(Long.parseLong(pageId)));
-        log.error("WE ARE HERE 2");
         for(Page page : descendants){
-            log.error("WE ARE HERE 3");
             PageDTO pageDTO = PageDTO.builder().page(page)
                     .bassKey(task.getProjectDTO().getBassProjectKey())
                     .targetKey(task.getProjectDTO().getTargetProjectKey())
                     .body(page.getBodyAsString())
                     .build();
-            log.error("WE ARE HERE 4");
             log.error(task.getScripts().size());
             task.getScripts().forEach(script -> script.run(pageDTO));
-            log.error("WE ARE HERE 5");
             if (pageDTO.isUpdated()){
-                log.error("WE ARE HERE 6");
                 pageManager.saveNewVersion(pageDTO.getPage(), new PageUpdater(pageDTO.getBody()), DefaultSaveContext.SUPPRESS_NOTIFICATIONS);
             }
         }
