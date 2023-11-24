@@ -17,7 +17,7 @@ public class ProjectConverter {
     }
 
 
-    public List<String> parseScripts(String scriptsSTR){
+    private List<String> parseScripts(String scriptsSTR){
         String[] scripts = scriptsSTR.split(",");
         scripts[0] = scripts[0].replace("[","");
         scripts[scripts.length - 1] = scripts[scripts.length - 1].replace("]","");

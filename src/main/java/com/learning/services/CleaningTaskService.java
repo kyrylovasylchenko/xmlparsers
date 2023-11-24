@@ -26,15 +26,19 @@ public class CleaningTaskService {
 
     public void cleaningContent(String projectName, String pageId){
         Task task = createTask(projectName);
-        List<Page> descendants = pageManager.getDescendants(pageManager.getPage(Long.parseLong(pageId)));
+        Page parentPage = pageManager.getPage(Long.parseLong(pageId));
+        List<Page> descendants = pageManager.getDescendants(parentPage);
+        descendants.add(parentPage);
         for(Page page : descendants){
+
             PageDTO pageDTO = PageDTO.builder().page(page)
                     .bassKey(task.getProjectDTO().getBassProjectKey())
                     .targetKey(task.getProjectDTO().getTargetProjectKey())
                     .body(page.getBodyAsString())
                     .build();
-            log.error(task.getScripts().size());
+
             task.getScripts().forEach(script -> script.run(pageDTO));
+
             if (pageDTO.isUpdated()){
                 pageManager.saveNewVersion(pageDTO.getPage(), new PageUpdater(pageDTO.getBody()), DefaultSaveContext.SUPPRESS_NOTIFICATIONS);
             }

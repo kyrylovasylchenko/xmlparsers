@@ -29,19 +29,8 @@ public class CustomBeans {
     public CleaningTaskService cleaningTaskService(ProjectService ps, ParseScripts parseScripts, PageManager pageManager){
         return new CleaningTaskService(ps, parseScripts, pageManager);
     }
-
     @Bean
-    public ReplaceUserKey replaceUserKey(UserAccessor userAccessor){
-        return new ReplaceUserKey(userAccessor);
-    }
-
-    @Bean
-    public ReplaceSpaceKey replaceSpaceKey(){
-        return new ReplaceSpaceKey();
-    }
-
-    @Bean
-    public ParseScripts parseScripts(ReplaceUserKey replaceUserKey, ReplaceSpaceKey replaceSpaceKey){
-        return new ParseScripts(replaceUserKey, replaceSpaceKey);
+    public ParseScripts parseScripts(UserAccessor userAccessor){
+        return new ParseScripts(userAccessor);
     }
 }
