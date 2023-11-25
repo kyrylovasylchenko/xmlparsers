@@ -6,6 +6,7 @@
 #requireResource("com.atlassian.auiplugin:aui-progress-indicator")
 #requireResource("com.atlassian.auiplugin:aui-flag")
 #requireResource("com.atlassian.auiplugin:aui-select2")
+#requireResource("com.atlassian.auiplugin:aui-dialog2")
 
 <html>
 <head>
@@ -137,6 +138,30 @@
         </table>
     </div>
 </div>
+
+<section
+        id="project-remove-dialog"
+        class="aui-dialog2 aui-dialog2-small aui-layer"
+        role="dialog"
+        tabindex="-1"
+        aria-modal="true"
+        aria-labelledby="dialog-show-button--heading"
+        aria-describedby="dialog-show-button--description"
+        hidden
+>
+    <header class="aui-dialog2-header">
+        <h1 class="aui-dialog2-header-main" id="dialog-show-button--heading">Removing</h1>
+    </header>
+    <div class="aui-dialog2-content" id="dialog-show-button--description">
+        <p>Do you want to delete <span id="dialog-project"></span>?</p>
+    </div>
+    <footer class="aui-dialog2-footer">
+        <div class="aui-dialog2-footer-actions">
+            <button id="dialog-submit-button-positive" class="aui-button aui-button-primary">Yes</button>
+            <button id="dialog-submit-button-negative" class="aui-button aui-button-primary">No</button>
+        </div>
+    </footer>
+</section>
 
 
 <div id="success-massage" class="aui-message success" style="display: none">

@@ -1,6 +1,7 @@
 AJS.toInit(function ($){
     $("#scripts").auiSelect2();
 
+
     $.ajax({
         type: "GET",
         url: AJS.contextPath() + "/rest/xmlparsers/1.0/project",
@@ -30,7 +31,8 @@ AJS.toInit(function ($){
                 var deleteButton = document.createElement("button");
                 deleteButton.innerHTML = "<span class=\"aui-icon aui-icon-small aui-iconfont-trash\" role=\"img\" aria-label=\"Insert meaningful text here for accessibility\" />";
                 deleteButtonCell.appendChild(deleteButton);
-                deleteButton.onclick = function() {
+                deleteButton.onclick = function(e) {
+                    e.preventDefault();
                     deleteProject(item.projectName);
                 };
                 var listElement = document.createElement("aui-option");
@@ -92,8 +94,11 @@ AJS.toInit(function ($){
         })
     })
 
+
 })
 
 function deleteProject(projectName){
-    console.log("Delete " + projectName)
+    var messageElement = document.getElementById("dialog-project")
+    messageElement.innerHTML = projectName
+    AJS.dialog2("#project-remove-dialog").show();
 }
