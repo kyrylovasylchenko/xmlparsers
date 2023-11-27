@@ -101,4 +101,23 @@ function deleteProject(projectName){
     var messageElement = document.getElementById("dialog-project")
     messageElement.innerHTML = projectName
     AJS.dialog2("#project-remove-dialog").show();
+
+    AJS.$("#dialog-submit-button-positive").off('click');
+
+    AJS.$("#dialog-submit-button-negative").on('click', function (e) {
+        e.preventDefault();
+        AJS.dialog2("#project-remove-dialog").hide();
+    });
+
+    AJS.$("#dialog-submit-button-positive").on('click', function (e) {
+        e.preventDefault();
+        $.ajax({
+            type: "DELETE",
+            url: AJS.contextPath() + "/rest/xmlparsers/1.0/project",
+            data: {
+                projectName:projectName
+            }
+        })
+        AJS.dialog2("#project-remove-dialog").hide();
+    });
 }

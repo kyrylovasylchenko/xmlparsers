@@ -36,4 +36,8 @@ public class ProjectService {
         ProjectEntity byProjectName = projectRepository.getByProjectName(projectName);
         return projectConverter.projectEntityToProjectDTO(byProjectName);
     }
+
+    public void deleteProjectByName(String projectName){
+        projectRepository.deleteProjectByName(projectName);
+    }
 }

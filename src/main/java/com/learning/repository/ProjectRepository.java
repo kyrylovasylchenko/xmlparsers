@@ -10,4 +10,6 @@ public interface ProjectRepository {
     ProjectEntity[] all();
 
     ProjectEntity getByProjectName(String projectName);
+
+    void deleteProjectByName(String projectName);
 }

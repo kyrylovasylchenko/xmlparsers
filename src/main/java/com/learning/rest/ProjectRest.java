@@ -7,6 +7,7 @@ import com.learning.model.DTO.ProjectDTO;
 import com.learning.services.ProjectService;
 import lombok.extern.log4j.Log4j;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.ws.rs.*;
 
@@ -38,6 +39,13 @@ public class ProjectRest {
     public Response getProjects(){
         String json = gson.toJson(projectService.getAllProjects());
         return Response.ok(json).build();
+    }
+
+
+    @DELETE
+    public Response deleteProject(@FormParam("projectName") String projectName){
+        projectService.deleteProjectByName(projectName);
+        return Response.ok().build();
     }
 
 

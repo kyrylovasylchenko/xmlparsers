@@ -39,8 +39,14 @@ public class ProjectRepositoryImpl implements ProjectRepository {
         return projectEntities[0];
     }
 
-
-    public boolean delete(String projectName){
-        return false;
+    @Override
+    public void deleteProjectByName(String projectName) {
+        try {
+            ao.delete(getByProjectName(projectName));
+        }catch (Exception e){
+            log.error(e);
+        }
     }
+
+
 }
