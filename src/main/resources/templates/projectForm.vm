@@ -51,7 +51,7 @@
             <div class="field-group">
                 <label for="pageId" class="label-form">Page id
                     <span class="aui-icon icon-required">(required)</span></label>
-                <input class="text medium-field" type="text"
+                <input class="text" type="text"
                        id="pageId" name="pageId" placeholder=0000000
                        data-aui-validation-field data-aui-validation-pattern="\d{4,16}"
                        data-aui-validation-pattern-msg="Incorrect page id"
@@ -72,7 +72,7 @@
             <div class="field-group">
                 <label for="projectName" class="label-form">Project name
                     <span class="aui-icon icon-required">(required)</span></label>
-                <input class="text medium-field" type="text"
+                <input class="text" type="text"
                        id="projectName" name="projectName" placeholder="Some project"
                        data-aui-validation-field data-aui-validation-pattern="[A-Za-z]{2,16}"
                        data-aui-validation-pattern-msg="Invalid project name"
@@ -83,7 +83,7 @@
             <div class="field-group">
                 <label for="bassProjectKey" class="label-form">Bass project key
                     <span class="aui-icon icon-required">(required)</span></label>
-                <input class="text medium-field" type="text"
+                <input class="text" type="text"
                        id="bassProjectKey" name="bassProjectKey" placeholder="space key"
                        data-aui-validation-field data-aui-validation-pattern="[A-Z]{2,12}"
                        data-aui-validation-pattern-msg="Invalid bass space key"
@@ -94,27 +94,29 @@
             <div class="field-group">
                 <label for="targetProjectKey" class="label-form">Target project key
                     <span class="aui-icon icon-required">(required)</span></label>
-                <input class="text medium-field" type="text"
+                <input class="text" type="text"
                        id="targetProjectKey" name="targetProjectKey" placeholder="space key"
                        data-aui-validation-field data-aui-validation-pattern="[A-Z]{2,12}"
                        data-aui-validation-pattern-msg="Invalid target space key"
                        data-aui-validation-required="required">
                 <div class="description" id="pageIdDescription">Input target space key in upper case</div>
             </div>
-            <label for="scripts" class="label-form">Scripts for project
-                <span class="aui-icon icon-required">(required)</span></label>
-            <select id="scripts" multiple="">
-                <option value="ReplaceUserKey">ReplaceUserKey</option>
-                <option value="ReplaceSpaceKey">ReplaceSpaceKey</option>
-                <option value="AddInfoMacro">AddInfoMacro</option>
-                <option value="ReplaceWebLinks">ReplaceWebLinks</option>
-                <option value="ReplacePageInfo">ReplacePageInfo</option>
-                <option value="ReplaceJiraMacro">ReplaceJiraMacro</option>
-                <option value="ReplaceCodeParam">ReplaceCodeParam</option>
-                <option value="ReplaceContentStatus">ReplaceContentStatus</option>
-                <option value="ReplaceNcTableFilter">ReplaceNcTableFilter</option>
+            <div class="field-group">
+                <label for="scripts" class="label-form">Scripts for project
+                    <span class="aui-icon icon-required">(required)</span></label>
+                <select id="scripts" multiple="" style="width:250px">
+                    <option value="ReplaceUserKey">ReplaceUserKey</option>
+                    <option value="ReplaceSpaceKey">ReplaceSpaceKey</option>
+                    <option value="AddInfoMacro">AddInfoMacro</option>
+                    <option value="ReplaceWebLinks">ReplaceWebLinks</option>
+                    <option value="ReplacePageInfo">ReplacePageInfo</option>
+                    <option value="ReplaceJiraMacro">ReplaceJiraMacro</option>
+                    <option value="ReplaceCodeParam">ReplaceCodeParam</option>
+                    <option value="ReplaceContentStatus">ReplaceContentStatus</option>
+                    <option value="ReplaceNcTableFilter">ReplaceNcTableFilter</option>
 
-            </select>
+                </select>
+            </div>
             <div class="buttons-container">
                 <div class="buttons">
                     <input class="button submit" type="submit" value="Submit" id="run">
