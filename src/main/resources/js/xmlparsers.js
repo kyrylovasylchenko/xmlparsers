@@ -24,18 +24,17 @@ AJS.toInit(function ($){
             success: function (data){
                 var flag = AJS.flag({
                     type: 'success',
-                    body: 'Project has been added',
+                    body: '<b>' + projectData.projectName + '</b> project has been added',
                 });
                 setTimeout(() => {
                     flag.close()
                 }, 3 * 1000)
-                deleteProject()
-                uploadProjects()
+                addProjectToTable(projectData)
             },
             error:function (){
                 var flag = AJS.flag({
                     type: 'error',
-                    body: 'Project has not been added',
+                    body: '<b>' + projectData.projectName + '</b> project has not been added',
                 });
                 setTimeout(() => {
                     flag.close()
@@ -105,7 +104,7 @@ function deleteProject(projectName){
                 }
                 var flag = AJS.flag({
                     type: 'success',
-                    body: 'Project has been deleted',
+                    body: '<b>' + projectName + '</b> project has been deleted',
                 });
                 setTimeout(() => {
                     flag.close()
@@ -124,40 +123,46 @@ function uploadProjects(){
         success: function (data){
             var dataArray = JSON.parse(data);
 
-            var tableBody = document.getElementById("tableBody");
-            var projectSelect = document.getElementById("projectSelect");
-            var dataListElement = projectSelect.querySelector("datalist");
-
-            dataArray.forEach(function(item) {
-                var row = tableBody.insertRow();
-
-                var projectNameCell = row.insertCell(0);
-                projectNameCell.innerHTML = item.projectName;
-
-                var bassProjectKeyCell = row.insertCell(1);
-                bassProjectKeyCell.innerHTML = item.bassProjectKey;
-
-                var targetProjectKeyCell = row.insertCell(2);
-                targetProjectKeyCell.innerHTML = item.targetProjectKey;
-
-                var scriptsCell = row.insertCell(3);
-                scriptsCell.innerHTML = item.scripts.join(", ");
-
-                var deleteButtonCell = row.insertCell(4);
-                var deleteButton = document.createElement("button");
-                deleteButton.className = "aui-button aui-button-danger";
-                deleteButton.innerHTML = "<span class=\"aui-icon aui-icon-small aui-iconfont-trash\" role=\"img\" aria-label=\"Insert meaningful text here for accessibility\" />";
-                deleteButtonCell.appendChild(deleteButton);
-                deleteButton.onclick = function(e) {
-                    e.preventDefault();
-                    deleteProject(item.projectName);
-                };
-                var listElement = document.createElement("aui-option");
-                listElement.innerHTML = item.projectName
-                dataListElement.appendChild(listElement)
-
-            });
+            dataArray.forEach(function (item) {
+                addProjectToTable(item)
+            }
+        );
         }
     })
+}
+
+
+function addProjectToTable(item){
+    var tableBody = document.getElementById("tableBody");
+    var projectSelect = document.getElementById("projectSelect");
+    var dataListElement = projectSelect.querySelector("datalist");
+
+    var row = tableBody.insertRow();
+
+    var projectNameCell = row.insertCell(0);
+    projectNameCell.innerHTML = item.projectName;
+
+    var bassProjectKeyCell = row.insertCell(1);
+    bassProjectKeyCell.innerHTML = item.bassProjectKey;
+
+    var targetProjectKeyCell = row.insertCell(2);
+    targetProjectKeyCell.innerHTML = item.targetProjectKey;
+
+    var scriptsCell = row.insertCell(3);
+    scriptsCell.innerHTML = item.scripts.join(", ");
+
+    var deleteButtonCell = row.insertCell(4);
+    var deleteButton = document.createElement("button");
+    deleteButton.className = "aui-button aui-button-danger";
+    deleteButton.innerHTML = "<span class=\"aui-icon aui-icon-small aui-iconfont-trash\" role=\"img\" aria-label=\"Insert meaningful text here for accessibility\" />";
+    deleteButtonCell.appendChild(deleteButton);
+    deleteButton.onclick = function(e) {
+        e.preventDefault();
+        deleteProject(item.projectName);
+    };
+    var listElement = document.createElement("aui-option");
+    listElement.innerHTML = item.projectName
+    dataListElement.appendChild(listElement)
+
 }
 
