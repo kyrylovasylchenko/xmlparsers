@@ -30,6 +30,7 @@ public class ReplaceUserKey implements Script {
             }
             page.setUpdated(true);
             page.setBody(body);
+            page.getScriptLogs().put("ReplaceUserKey", page.getPage().getTitle());
         }
 
         return page;

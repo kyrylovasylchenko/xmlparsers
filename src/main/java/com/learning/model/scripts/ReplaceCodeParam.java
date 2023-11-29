@@ -9,6 +9,7 @@ public class ReplaceCodeParam implements Script {
         if(page.getBody().contains("ac:name=\"code\"")){
             page.setBody(page.getBody().replace("<ac:parameter ac:name=\"language\">json</ac:parameter>", ""));
             page.setUpdated(true);
+            page.getScriptLogs().put("ReplaceCodeParam", page.getPage().getTitle());
         }
         return page;
     }

@@ -30,6 +30,7 @@ public class ReplaceSpaceKey implements Script {
                 }
                 page.setBody(body);
                 page.setUpdated(true);
+                page.getScriptLogs().put("ReplaceSpaceKey", page.getPage().getTitle());
             }
         }
 

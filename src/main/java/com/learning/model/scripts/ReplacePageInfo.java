@@ -30,6 +30,7 @@ public class ReplacePageInfo implements Script {
             }
             page.setBody(body);
             page.setUpdated(true);
+            page.getScriptLogs().put("ReplacePageInfo", page.getPage().getTitle());
         }
         return page;
     }

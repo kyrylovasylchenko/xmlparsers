@@ -24,6 +24,7 @@ public class ReplaceContentStatus implements Script {
             }
             page.setBody(pageDocument.html());
             page.setUpdated(true);
+            page.getScriptLogs().put("ReplaceContentStatus", page.getPage().getTitle());
         }
         return page;
     }

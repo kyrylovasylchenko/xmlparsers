@@ -4,6 +4,8 @@ import com.atlassian.confluence.pages.Page;
 import lombok.Builder;
 import lombok.Data;
 
+import java.util.Map;
+
 @Data
 @Builder
 public class PageDTO {
@@ -12,4 +14,5 @@ public class PageDTO {
     private String targetKey;
     private boolean isUpdated;
     private String body;
+    private Map<String, String> scriptLogs;
 }

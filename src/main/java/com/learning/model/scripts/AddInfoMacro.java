@@ -17,6 +17,7 @@ public class AddInfoMacro implements Script {
                     "<a href=\"https://jsd.netcracker.com/projects/NISD\">https://jsd.netcracker.com/projects/NISD</a>.</span></span></strong>" +
                     "</p></ac:rich-text-body></ac:structured-macro>" + page.getBody());
             page.setUpdated(true);
+            page.getScriptLogs().put("AddInfoMacro", page.getPage().getTitle());
         }
         return page;
     }

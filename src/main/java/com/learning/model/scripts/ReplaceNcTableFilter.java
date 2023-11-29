@@ -22,6 +22,7 @@ public class ReplaceNcTableFilter implements Script {
             }
             page.setBody(pageDocument.html());
             page.setUpdated(true);
+            page.getScriptLogs().put("ReplaceNcTableFilter", page.getPage().getTitle());
         }
         return page;
     }

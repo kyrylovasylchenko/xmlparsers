@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 
 import java.util.List;
+import java.util.Map;
 
 @Data
 @AllArgsConstructor
@@ -13,4 +14,5 @@ import java.util.List;
 public class Task {
     private ProjectDTO projectDTO;
     private List<Script> scripts;
+    private Map<String, List<String>> results;
 }

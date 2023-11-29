@@ -6,6 +6,7 @@ import lombok.extern.log4j.Log4j;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
+import javax.ws.rs.core.Response;
 
 @Path("/task")
 @Log4j
@@ -18,8 +19,8 @@ public class CleaningTaskRest {
     }
 
     @PUT
-    public void cleanContent(@FormParam("projectName") String projectName, @FormParam("pageId") String pageId){
-        log.error("PROJECT NAME " + projectName + " PAGE ID " + pageId);
-        cleaningTaskService.cleaningContent(projectName, pageId);
+    public Response cleanContent(@FormParam("projectName") String projectName, @FormParam("pageId") String pageId){
+        String result = cleaningTaskService.cleaningContent(projectName, pageId);
+        return Response.ok(result).build();
     }
 }
