@@ -1,5 +1,6 @@
 package com.learning.model.scripts;
 
+import com.atlassian.confluence.setup.settings.Settings;
 import com.learning.model.DTO.PageDTO;
 import com.learning.model.Script;
 import org.jsoup.Jsoup;
@@ -22,7 +23,7 @@ public class ReplaceNcTableFilter implements Script {
             }
             page.setBody(pageDocument.html());
             page.setUpdated(true);
-            page.getScriptLogs().put("ReplaceNcTableFilter", page.getPage().getTitle());
+            page.getScriptLogs().put("ReplaceNcTableFilter", page.getPage().getTitle() + " || " + new Settings().getBaseUrl() + page.getPage().getUrlPath());
         }
         return page;
     }

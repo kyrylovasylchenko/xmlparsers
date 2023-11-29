@@ -1,5 +1,6 @@
 package com.learning.model.scripts;
 
+import com.atlassian.confluence.setup.settings.Settings;
 import com.atlassian.confluence.user.UserAccessor;
 
 import java.util.regex.Matcher;
@@ -30,7 +31,7 @@ public class ReplaceUserKey implements Script {
             }
             page.setUpdated(true);
             page.setBody(body);
-            page.getScriptLogs().put("ReplaceUserKey", page.getPage().getTitle());
+            page.getScriptLogs().put("ReplaceUserKey", page.getPage().getTitle() + " || " + new Settings().getBaseUrl() + page.getPage().getUrlPath());
         }
 
         return page;

@@ -105,16 +105,15 @@
                 <label for="scripts" class="label-form">Scripts for project
                     <span class="aui-icon icon-required">(required)</span></label>
                 <select id="scripts" multiple="" style="width:250px">
+                    <option value="ReplaceJiraMacro">ReplaceJiraMacro</option>
+                    <option value="ReplaceWebLinks">ReplaceWebLinks</option>
+                    <option value="AddInfoMacro">AddInfoMacro</option>
                     <option value="ReplaceUserKey">ReplaceUserKey</option>
                     <option value="ReplaceSpaceKey">ReplaceSpaceKey</option>
-                    <option value="AddInfoMacro">AddInfoMacro</option>
-                    <option value="ReplaceWebLinks">ReplaceWebLinks</option>
                     <option value="ReplacePageInfo">ReplacePageInfo</option>
-                    <option value="ReplaceJiraMacro">ReplaceJiraMacro</option>
                     <option value="ReplaceCodeParam">ReplaceCodeParam</option>
                     <option value="ReplaceContentStatus">ReplaceContentStatus</option>
                     <option value="ReplaceNcTableFilter">ReplaceNcTableFilter</option>
-
                 </select>
             </div>
             <div class="buttons-container">

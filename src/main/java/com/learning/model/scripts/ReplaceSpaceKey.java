@@ -1,5 +1,6 @@
 package com.learning.model.scripts;
 
+import com.atlassian.confluence.setup.settings.Settings;
 import com.learning.model.DTO.PageDTO;
 import com.learning.model.Script;
 
@@ -30,7 +31,7 @@ public class ReplaceSpaceKey implements Script {
                 }
                 page.setBody(body);
                 page.setUpdated(true);
-                page.getScriptLogs().put("ReplaceSpaceKey", page.getPage().getTitle());
+                page.getScriptLogs().put("ReplaceSpaceKey", page.getPage().getTitle() + " || " + new Settings().getBaseUrl() + page.getPage().getUrlPath());
             }
         }
 
