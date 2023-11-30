@@ -36,13 +36,13 @@ public class ReplaceWebLinks implements Script {
                     linkTitle = linkTitle.replace("%5B", "[").replace("%5D", "]").replace("+", " ");
                     String newLink = "";
                     if (page.getTargetKey().equalsIgnoreCase(spaceNewLink)) {
-                        if (!link.text().equals("")) {
+                        if (!link.text().isEmpty()) {
                             newLink = String.format(newPattern, linkTitle, link.text());
                         } else {
                             newLink = String.format(newPattern, linkTitle, linkTitle);
                         }
                     } else {
-                        if (!link.text().equals("")) {
+                        if (!link.text().isEmpty()) {
                             newLink = String.format(newPattern1, spaceNewLink, linkTitle, link.text());
 
                         } else {

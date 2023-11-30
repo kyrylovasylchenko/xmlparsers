@@ -26,14 +26,6 @@ public class ProjectDTO {
     @JsonProperty("scripts")
     private List<String> scripts;
 
-    public ProjectDTO(String projectName){
-        this.projectName = projectName;
-    }
-
-    public ProjectDTO(String projectName, String bassProjectKey){
-        this.projectName = projectName;
-        this.bassProjectKey = bassProjectKey;
-    }
 
 
 }
