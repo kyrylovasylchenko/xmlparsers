@@ -20,7 +20,12 @@ public class CleaningTaskRest {
 
     @PUT
     public Response cleanContent(@FormParam("projectName") String projectName, @FormParam("pageId") String pageId){
-        String result = cleaningTaskService.cleaningContent(projectName, pageId);
-        return Response.ok(result).build();
+        try{
+            String result = cleaningTaskService.cleaningContent(projectName, pageId);
+            return Response.ok(result).build();
+        }catch (Exception exc){
+            exc.printStackTrace();
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(exc.toString()).build();
+        }
     }
 }

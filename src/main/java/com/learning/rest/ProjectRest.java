@@ -31,21 +31,36 @@ public class ProjectRest {
     @PUT
     public Response saveProject(@RequestBody ProjectDTO projectDTO)
     {
-        projectService.add(projectDTO);
-        return Response.ok(projectDTO.toString()).build();
+        try {
+            projectService.add(projectDTO);
+            return Response.ok(projectDTO.toString()).build();
+        }catch (Exception exc){
+            log.error(exc);
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(exc.toString()).build();
+        }
     }
 
     @GET
     public Response getProjects(){
-        String json = gson.toJson(projectService.getAllProjects());
-        return Response.ok(json).build();
+       try {
+           String json = gson.toJson(projectService.getAllProjects());
+           return Response.ok(json).build();
+       }catch (Exception exc){
+           log.error(exc);
+           return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(exc.toString()).build();
+       }
     }
 
 
     @DELETE
     public Response deleteProject(@FormParam("projectName") String projectName){
-        projectService.deleteProjectByName(projectName);
-        return Response.ok().build();
+        try{
+            projectService.deleteProjectByName(projectName);
+            return Response.ok().build();
+        }catch (Exception exc){
+            log.error(exc);
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(exc.toString()).build();
+        }
     }
 
 
